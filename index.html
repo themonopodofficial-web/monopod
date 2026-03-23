@@ -343,7 +343,7 @@
           </button>
         </div>
         <iframe id="yt-iframe-street" class="yt-iframe" style="display:none"
-          src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
       <div class="proj-info">
         <div class="proj-num">002</div>
@@ -385,7 +385,7 @@
           </button>
         </div>
         <iframe id="yt-iframe-wtf" class="yt-iframe" style="display:none"
-          src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
       <div class="proj-info">
         <div class="proj-num">004</div>
@@ -593,6 +593,16 @@ const obs = new IntersectionObserver(entries => {
 }, { threshold: 0.08 });
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
+
+// ─── YouTube loader ───
+function loadYT(id, videoId) {
+  const thumb  = document.getElementById('yt-thumb-' + id);
+  const iframe = document.getElementById('yt-iframe-' + id);
+  if (!thumb || !iframe) return;
+  iframe.src = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0&modestbranding=1';
+  thumb.style.display  = 'none';
+  iframe.style.display = 'block';
+}
 // ─── Contact ───
 function handleSend() {
   document.getElementById('sendBtn').style.display = 'none';
