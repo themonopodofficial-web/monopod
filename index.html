@@ -229,7 +229,7 @@
       justify-content:center;cursor:none;transition:background .2s,transform .2s;
       padding-left:4px}
     .proj:hover .yt-play-btn{background:rgba(245,242,238,.22);transform:translate(-50%,-50%) scale(1.1)}
-    .yt-iframe{position:absolute;inset:0;width:100%;height:100%;border:none}
+    .yt-iframe{position:absolute;inset:0;width:100%;height:100%;border:none;z-index:10}
   </style>
 </head>
 <body>
@@ -602,6 +602,12 @@ function loadYT(id, videoId) {
   iframe.src = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0&modestbranding=1';
   thumb.style.display  = 'none';
   iframe.style.display = 'block';
+  // Hide proj-info so it doesn't block the iframe controls
+  const proj = iframe.closest('.proj');
+  if (proj) {
+    const info = proj.querySelector('.proj-info');
+    if (info) info.style.display = 'none';
+  }
 }
 // ─── Contact ───
 function handleSend() {
