@@ -9,15 +9,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200;400;700;900&family=Lora:ital,wght@0,400;0,500;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet"/>
   <style>
     :root{
-      --ink:#060606;--paper:#f5f2ee;--mid:#777;--dim:#2a2a2a;
-      --line:#1e1e1e;--offblack:#0f0f0f;
+      --ink:#f5f2ee;--paper:#060606;--mid:#555;--dim:#cccccc;
+      --line:#d0ccc6;--offblack:#efefef;
     }
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
     body{background:var(--ink);color:var(--paper);font-family:'Lora',serif;overflow-x:hidden;cursor:none}
 
     /* GRAIN */
-    body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;opacity:.055;mix-blend-mode:overlay;
+    body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;opacity:.025;mix-blend-mode:multiply;
       background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)'/%3E%3C/svg%3E")}
 
     /* CURSOR */
@@ -28,7 +28,7 @@
 
     /* NAV */
     nav{position:fixed;top:0;width:100%;z-index:900;display:flex;align-items:center;
-      justify-content:space-between;padding:1.6rem 3rem;mix-blend-mode:difference}
+      justify-content:space-between;padding:1.6rem 3rem}
     .logo{font-family:'Unbounded',sans-serif;font-weight:900;font-size:1.1rem;
       letter-spacing:.06em;color:var(--paper);text-decoration:none}
     .logo sup{font-size:.4em;vertical-align:super;font-weight:200;letter-spacing:.2em}
@@ -45,7 +45,7 @@
     .reel-cell{overflow:hidden;background:var(--dim);display:flex;align-items:center;justify-content:center}
     .reel-cell img{width:100%;height:100%;object-fit:cover;filter:none}
     .hero-overlay{position:absolute;inset:0;
-      background:linear-gradient(to top,var(--ink) 30%,rgba(6,6,6,.5) 65%,rgba(6,6,6,.15) 100%)}
+      background:linear-gradient(to top,var(--ink) 30%,rgba(245,242,238,.4) 65%,rgba(245,242,238,.1) 100%)}
     .hero-body{position:relative;z-index:2;max-width:1100px}
     .hero-tag{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.28em;
       text-transform:uppercase;color:var(--mid);margin-bottom:1.8rem;
@@ -143,14 +143,14 @@
 
     .proj-info{position:absolute;bottom:0;left:0;right:0;
       padding:2rem 1.8rem;
-      background:linear-gradient(to top,rgba(6,6,6,.96) 0%,transparent 100%);
+      background:linear-gradient(to top,rgba(245,242,238,.97) 0%,transparent 100%);
       transform:translateY(4px);transition:transform .3s}
     .proj:hover .proj-info{transform:translateY(0)}
-    .proj-num{font-family:'DM Mono',monospace;font-size:.55rem;letter-spacing:.22em;color:var(--mid);margin-bottom:.3rem}
+    .proj-num{font-family:'DM Mono',monospace;font-size:.55rem;letter-spacing:.22em;color:#777;margin-bottom:.3rem}
     .proj-cat{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.18em;
       text-transform:uppercase;color:var(--mid);margin-bottom:.3rem}
     .proj-name{font-family:'Unbounded',sans-serif;font-weight:700;
-      font-size:clamp(1.2rem,2.5vw,2rem);line-height:1;letter-spacing:-.01em}
+      font-size:clamp(1.2rem,2.5vw,2rem);line-height:1;letter-spacing:-.01em;color:#0d0d0d}
     .proj-year{font-size:.85rem;font-style:italic;color:var(--mid);margin-top:.25rem}
     .proj-count{position:absolute;top:1.2rem;right:1.2rem;
       font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.12em;
@@ -221,14 +221,14 @@
     .yt-thumb{position:absolute;inset:0;background-size:cover;background-position:center;
       filter:grayscale(1) contrast(1.1);transition:filter .4s}
     .proj:hover .yt-thumb{filter:none}
-    .yt-overlay{position:absolute;inset:0;background:rgba(6,6,6,.35)}
+    .yt-overlay{position:absolute;inset:0;background:rgba(0,0,0,.25)}
     .yt-play-btn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
       width:64px;height:64px;border-radius:50%;
-      background:rgba(245,242,238,.12);border:2px solid rgba(245,242,238,.5);
+      background:rgba(255,255,255,.25);border:2px solid rgba(255,255,255,.6);
       color:var(--paper);font-size:1.6rem;display:flex;align-items:center;
       justify-content:center;cursor:none;transition:background .2s,transform .2s;
       padding-left:4px}
-    .proj:hover .yt-play-btn{background:rgba(245,242,238,.22);transform:translate(-50%,-50%) scale(1.1)}
+    .proj:hover .yt-play-btn{background:rgba(255,255,255,.4);transform:translate(-50%,-50%) scale(1.1)}
     .yt-iframe{position:absolute;inset:0;width:100%;height:100%;border:none;z-index:10}
   </style>
 </head>
@@ -242,6 +242,7 @@
   <ul class="nav-links">
     <li><a href="#about">Studio</a></li>
     <li><a href="#work">Work</a></li>
+    <li><a href="#services">Services</a></li>
     <li><a href="#process">Process</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -378,7 +379,61 @@
         <div class="proj-cat">Documentary · Editing</div>
         <div class="proj-name">Kokkarippu</div>
         <div class="proj-year">Dir. Jenoshan Jeyaratnam · Neelam Social</div>
-        <div style="display:inline-block;margin-top:.6rem;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.25);padding:.25rem .8rem;font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:#fff;">&#9670; Editing by Monopod</div>
+        <div style="display:inline-block;margin-top:.6rem;background:rgba(0,0,0,0.07);border:1px solid rgba(0,0,0,0.18);padding:.25rem .8rem;font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:#333;">&#9670; Editing by Monopod</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══ SERVICES ═══ -->
+<section id="services" style="border-top:1px solid var(--line);padding:110px 3rem;background:var(--ink)">
+  <div class="reveal">
+    <p class="s-label">03 — Services</p>
+    <h2 class="s-title">What We Offer</h2>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);margin-top:4rem">
+
+    <!-- Visual Production -->
+    <div style="background:var(--ink);padding:3rem 2.5rem" class="reveal">
+      <div style="font-family:'Unbounded',sans-serif;font-weight:200;font-size:3rem;color:var(--line);line-height:1;margin-bottom:1.5rem">01</div>
+      <div style="font-family:'Unbounded',sans-serif;font-weight:700;font-size:1.4rem;letter-spacing:.02em;margin-bottom:1.2rem;color:var(--paper)">Visual Production</div>
+      <p style="color:var(--mid);font-size:.95rem;line-height:1.9;font-family:'Lora',serif">From concept to final frame — we shoot, edit, and grade. Music videos, short films, documentaries, and photoshoots built with intention and finished with care.</p>
+      <div style="margin-top:2rem;display:flex;flex-direction:column;gap:.6rem">
+        <div style="display:flex;align-items:center;gap:1rem;border-bottom:1px solid var(--line);padding-bottom:.8rem">
+          <span style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--mid);min-width:120px">Video Production</span>
+          <span style="font-size:.85rem;color:var(--mid);font-family:'Lora',serif;font-style:italic">Music videos · Short films · Documentaries · Photoshoots</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:1rem;border-bottom:1px solid var(--line);padding-bottom:.8rem">
+          <span style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--mid);min-width:120px">Color Grading</span>
+          <span style="font-size:.85rem;color:var(--mid);font-family:'Lora',serif;font-style:italic">Tone · Mood · DaVinci Resolve</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:1rem">
+          <span style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--mid);min-width:120px">Video Editing</span>
+          <span style="font-size:.85rem;color:var(--mid);font-family:'Lora',serif;font-style:italic">Narrative · Documentary · Premiere Pro</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Digital -->
+    <div style="background:var(--ink);padding:3rem 2.5rem" class="reveal d1">
+      <div style="font-family:'Unbounded',sans-serif;font-weight:200;font-size:3rem;color:var(--line);line-height:1;margin-bottom:1.5rem">02</div>
+      <div style="font-family:'Unbounded',sans-serif;font-weight:700;font-size:1.4rem;letter-spacing:.02em;margin-bottom:1.2rem;color:var(--paper)">Digital</div>
+      <p style="color:var(--mid);font-size:.95rem;line-height:1.9;font-family:'Lora',serif">Clean, purposeful digital presence — designed to reflect your brand, built to perform, and optimised to be found by the right people.</p>
+      <div style="margin-top:2rem;display:flex;flex-direction:column;gap:.6rem">
+        <div style="display:flex;align-items:center;gap:1rem;border-bottom:1px solid var(--line);padding-bottom:.8rem">
+          <span style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--mid);min-width:120px">Web Design</span>
+          <span style="font-size:.85rem;color:var(--mid);font-family:'Lora',serif;font-style:italic">UI · Landing pages · Portfolio sites</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:1rem;border-bottom:1px solid var(--line);padding-bottom:.8rem">
+          <span style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--mid);min-width:120px">Web Development</span>
+          <span style="font-size:.85rem;color:var(--mid);font-family:'Lora',serif;font-style:italic">HTML · CSS · JavaScript · Deployment</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:1rem">
+          <span style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--mid);min-width:120px">SEO</span>
+          <span style="font-size:.85rem;color:var(--mid);font-family:'Lora',serif;font-style:italic">On-page · Meta · Performance optimisation</span>
+        </div>
       </div>
     </div>
 
@@ -388,7 +443,7 @@
 <!-- ═══ PROCESS ═══ -->
 <section id="process">
   <div class="reveal">
-    <p class="s-label">03 — Process</p>
+    <p class="s-label">04 — Process</p>
     <h2 class="s-title">How We Work</h2>
   </div>
   <div class="proc-grid">
@@ -414,7 +469,7 @@
 <section id="contact">
   <div class="contact-grid">
     <div class="reveal">
-      <p class="s-label">04 — Contact</p>
+      <p class="s-label">05 — Contact</p>
       <div class="contact-big">LET'S<br>TELL<br><span class="out">YOURS.</span></div>
       <div class="soc-row">
         <a href="#"><i class="bi bi-instagram me-1"></i>Instagram</a>
@@ -445,8 +500,8 @@
 <footer>
   <span class="ft-brand" style="display:flex;align-items:center">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 52" height="24" style="display:block">
-      <text x="2" y="44" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-weight="800" font-size="52" fill="#555555" letter-spacing="-2">M</text>
-      <text x="58" y="44" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-weight="800" font-size="52" fill="#333333" letter-spacing="-2">P</text>
+      <text x="2" y="44" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-weight="800" font-size="52" fill="#999999" letter-spacing="-2">M</text>
+      <text x="58" y="44" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-weight="800" font-size="52" fill="#bbbbbb" letter-spacing="-2">P</text>
     </svg>
   </span>
   <span class="ft-copy">© 2026 · Monopod · Colombo · All Rights Reserved</span>
